@@ -1,0 +1,18 @@
+{% extends "apptwo/help.html" %}
+
+  {% block body_block %}
+  <h1>Help template joined with another one</h1>
+    {% if template_tag %}
+    <ol>
+      {% for k in template_tag %}
+
+      <li>User Info</li>
+
+    <ul>
+      <li>First Name: {{ k.firstname }}</li>
+      <li>Last Name: {{ k.lastname }}</li>
+      <li>Email :{{k.email}} </li>
+    </ul>
+    {% endfor %}    </ol>
+    {% endif %}
+    {% endblock %}

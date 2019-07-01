@@ -1,0 +1,10 @@
+{% extends "apptwo/help.html" %}
+
+ {% block body_block %}
+    <h1>Form Model</h1>
+    <form  method="POST">
+      {{formtag.as_p}}
+      {% csrf_token %}
+      <input type="submit" name="" value="submit">
+    </form>
+    {% endblock %}

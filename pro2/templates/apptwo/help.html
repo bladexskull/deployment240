@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>template exercise</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="C:\Users\ak\Desktop\DCIM\FastSave\Django-Python-Full-Stack-Web-Devloper-master\CSS_Level_One\CSS_Level_One_Test_Solutions.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="{% static "apptwo/sytle.css" %}" > -->
+    <!-- <link rel="stylesheet" href="C:\Users\ak\Desktop\Mydjangostuff\pro2\static\csswork\style.css"> -->
+  </head>
+  <body>
+<div class="container">
+
+
+      <ul class="nav nav-pills navbar-inverse">
+  <li role="presentation" class="active"><a href="{% url "apptwo:formcall" %}">FormPage</a></li>
+  <li role="presentation"><a href="{% url "apptwo:new" %}">NormalPage</a></li>
+  <li role="presentation"><a href="{% url "apptwo:index" %}">ListedData</a></li>
+  <li role="presentation"><a href="{% url "apptwo:help" %}">TableData</a></li>
+  <li role="presentation"><a href="{% url "admin:index" %}">Admin</a></li>
+</ul>
+<br><br>
+    <img src="{% static "imagesp/welcomepic1.jpg" %}" width="500"  height="100" alt="">
+    {% block body_block %}
+<h1>MTV EXERCISE</h1>
+<h2>HERE ARE YOUR USERS</h2>
+ {% if temptag %}
+<table border="2px">
+  <thead>
+  <th>FIRST NAME</th>
+  <th>LASTNAME</th>
+  <th>EMAIL</th>
+    </thead>
+  {% for k in temptag %}
+  <tr>
+    <td>{{ k.firstname }}</td>
+    <td>{{ k.lastname }}</td>
+    <td>{{ k.email }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+{% else %}
+<p>NO RECORD FOUND</p>
+{% endif %}
+{% endblock %}
+</div>
+  </body>
+</html>
